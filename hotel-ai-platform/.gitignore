@@ -1,0 +1,28 @@
+# Bytecode & Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Environment variables & secrets
+.env
+.env.local
+.env.*.local
+venv/
+.venv/
+env/
+
+# Scratch & QA temporary data (Chrome profiles & test screenshots)
+scratch/chrome_qa_profile/
+scratch/chrome_proof_profile/
+scratch/screenshots/
+scratch/apply_luxury_overrides.py
+scratch/audit_dom.py
+scratch/browser_qa_runner.py
+scratch/capture_full_proof.py
+scratch/download_local_room_assets.py
+scratch/run_visual_qa.py
+scratch/test_cdp_shot.py
+scratch/update_luxury_tokens.py
+scratch/update_styles.py

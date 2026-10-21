@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Grand Bangalore — Luxury Hospitality & Intelligent AI Concierge</title>
+    <meta name="description" content="Immerse yourself in timeless luxury hospitality at Hotel Grand Bangalore, featuring bespoke suites, panoramic vistas, intelligent pre-arrival AI check-in, and our conversational NOVA Concierge.">
+    
+    <!-- Editorial & Futuristic Typography (Taj Bangalore × Grand Emily) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- No-Cache Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- Favicon & Stylesheets -->
+    <link rel="icon" type="image/svg+xml" href="/static/assets/favicon.svg?v=2.5">
+    <link rel="stylesheet" href="/static/css/luxury.css?v=2.5">
+    <link rel="stylesheet" href="/static/css/luxury_3d.css?v=2.5">
+    <link rel="stylesheet" href="/static/css/animations.css?v=2.5">
+</head>
+<body class="luxury-live-theme">
+    <!-- Live Ambient Atmospheric Canvas -->
+    <canvas id="liveAmbientCanvas"></canvas>
+
+    <!-- 1. GLOBAL LUXURY NAVIGATION HEADER -->
+    <header class="site-header">
+        <div class="header-container">
+            <!-- Brand Identity -->
+            <a href="#rooms" class="brand-group" onclick="App.switchTab('rooms')">
+                <div class="brand-monogram">HG</div>
+                <div class="brand-text">
+                    <span class="brand-name">HOTEL GRAND</span>
+                    <span class="brand-sub">BANGALORE · EST. 2026</span>
+                </div>
+            </a>
+
+            <!-- Editorial Site Navigation -->
+            <nav class="site-nav" id="mainSiteNav">
+                <button type="button" class="nav-item-btn active" data-tab="rooms">Suites & Rooms</button>
+                <button type="button" class="nav-item-btn" data-tab="experiences">Experiences</button>
+                <button type="button" class="nav-item-btn" id="navMyBookings" data-tab="mybookings" style="display: none;">My Reservations</button>
+                <button type="button" class="nav-item-btn" id="navCheckIn" data-tab="checkin">Smart AI Check-In</button>
+                <button type="button" class="nav-item-btn" id="navDashboard" data-tab="dashboard" style="display: none;">Operations Hub</button>
+                <button type="button" class="nav-item-btn" id="navFeedback" data-tab="feedback">Guest Reviews</button>
+            </nav>
+
+            <!-- Right Controls & Actions -->
+            <div class="header-actions">
+                <div class="header-time-badge" title="Local Hotel Grand Time">
+                    <span class="live-beacon-dot"></span>
+                    <span id="quantumClock">Bangalore · 10:00 AM</span>
+                </div>
+                
+                <div id="authHud" class="auth-hud"></div>
+
+                <button type="button" class="btn-luxury-primary" onclick="App.openBookingModal()" id="btnHeaderReserve">
+                    <span>✦</span> Reserve Stay
+                </button>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button type="button" class="btn-luxury-secondary mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu" style="display: none; padding: 6px 10px;">
+                    ☰
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div class="mobile-nav-drawer" id="mobileNavDrawer" style="display: none;">
+            <button type="button" class="mobile-nav-link" data-tab="rooms">Suites & Rooms</button>
+            <button type="button" class="mobile-nav-link" data-tab="experiences">Experiences</button>
+            <button type="button" class="mobile-nav-link" id="mobileNavMyBookings" data-tab="mybookings" style="display: none;">My Reservations</button>
+            <button type="button" class="mobile-nav-link" id="mobileNavCheckIn" data-tab="checkin">Smart AI Check-In</button>
+            <button type="button" class="mobile-nav-link" id="mobileNavDashboard" data-tab="dashboard" style="display: none;">Operations Hub</button>
+            <button type="button" class="mobile-nav-link" id="mobileNavFeedback" data-tab="feedback">Guest Reviews</button>
+        </div>
+    </header>
+
+    <!-- 2. CINEMATIC 3D LUXURY HERO SECTION -->
+    <section class="hero-editorial hero-3d-section" id="section-hero">
+        <div class="hero-3d-canvas-container">
+            <canvas id="heroParticlesCanvas"></canvas>
+        </div>
+
+        <div class="hero-background-media">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=85" alt="Hotel Grand Bangalore Architecture" class="hero-background-img">
+            <div class="hero-overlay-gradient"></div>
+            <div class="hero-subtle-glow"></div>
+        </div>
+
+        <div class="hero-content-wrapper hero-3d-content">
+            <div class="hero-badge-pill">
+                <span class="badge-gem">✦</span>
+                <span class="badge-text">TAJ LUXURY HERITAGE × NEXT-GEN INTELLIGENT HOSPITALITY</span>
+                <span class="badge-sub">BENGALURU AIRPORT BOULEVARD</span>
+            </div>
+            
+            <h1 class="hero-headline-3d">
+                A Symphony of Royal Serenity <br><em>& Living Architecture.</em>
+            </h1>
+            
+            <p class="hero-subheadline-3d">
+                A harmonious fusion of timeless Indian regal luxury and modern European editorial design. Discover bespoke runway-view suites, an iconic 5-level courtyard atrium, Michelin-curated gastronomy, and our conversational NOVA AI Concierge.
+            </p>
+
+            <div class="hero-cta-deck">
+                <button type="button" class="btn-3d-primary" onclick="App.switchTab('rooms'); document.getElementById('stage-3d-explorer')?.scrollIntoView({behavior:'smooth'});">
+                    <span>🏛️ Explore 3D Suite Tour</span>
+                </button>
+                <button type="button" class="btn-3d-cyan" onclick="App.openBookingModal()">
+                    <span>✦ Reserve Exclusive Stay</span>
+                </button>
+            </div>
+
+            <!-- Grand Emily Style Editorial Metrics Bar -->
+            <div class="hero-editorial-stats-bar">
+                <div class="stat-unit">
+                    <span class="stat-num">154</span>
+                    <span class="stat-label">Bespoke Suites</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-unit">
+                    <span class="stat-num">5-Tier</span>
+                    <span class="stat-label">Courtyard Atrium</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-unit">
+                    <span class="stat-num">J Wellness</span>
+                    <span class="stat-label">Ayurvedic Sanctuary</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-unit">
+                    <span class="stat-num">24/7</span>
+                    <span class="stat-label">NOVA AI Concierge</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. FLOATING BOOKING & AVAILABILITY SEARCH WIDGET -->
+    <div class="floating-search-bar" id="floatingSearchBar">
+        <div class="search-bar-inner">
+            <div class="search-field-unit">
+                <label class="search-field-label">📅 Check-In Date</label>
+                <input type="date" id="heroSearchCheckIn" class="search-field-input" required>
+            </div>
+            
+            <div class="search-field-unit">
+                <label class="search-field-label">📅 Check-Out Date</label>
+                <input type="date" id="heroSearchCheckOut" class="search-field-input" required>
+            </div>
+            
+            <div class="search-field-unit">
+                <label class="search-field-label">🛏️ Suite Category</label>
+                <select id="heroSearchRoomType" class="search-field-select">
+                    <option value="Deluxe" selected>Deluxe Room</option>
+                    <option value="Suite">Presidential Suite</option>
+                    <option value="Double">Grand Double Room</option>
+                    <option value="Single">Single Room</option>
+                </select>
+            </div>
+            
+            <div class="search-field-unit">
+                <label class="search-field-label">👥 Guests</label>
+                <select id="heroSearchGuests" class="search-field-select">
+                    <option value="1">1 Guest</option>
+                    <option value="2" selected>2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4+ Guests</option>
+                </select>
+            </div>
+
+            <button type="button" class="search-action-btn" id="btnHeroSearchAvailability">
+                <span>Check Availability</span>
+                <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+
+        <div id="heroSearchFeedback" class="search-availability-feedback"></div>
+    </div>
+
+    <!-- 4. MAIN VIEWS CONTAINER -->
+    <main class="main-content-deck">
+
+        <!-- VIEW 1: ROOMS & SUITES -->
+        <div id="tab-rooms" class="tab-view">
+            <div class="section-editorial-header">
+                <span class="section-subtitle-tag">Curated Accommodations</span>
+                <h2 class="section-editorial-title">Suites & Private Residences</h2>
+                <p class="section-editorial-desc">
+                    Each suite is individually sculpted with natural materials, panoramic floor-to-ceiling windows, and discreet technology.
+                </p>
+            </div>
+
+            <!-- 3D WebGL Interactive Suite Explorer Stage -->
+            <div class="stage-3d-wrapper" id="stage-3d-explorer">
+                <div class="stage-3d-header">
+                    <div class="stage-title-group">
+                        <div class="brand-monogram-3d" style="width: 36px; height: 36px; font-size: 0.95rem;">3D</div>
+                        <div>
+                            <h3 id="stage3DSuiteTitle" style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 2px;">
+                                Presidential Runway Suite (Interactive Virtual Experience)
+                            </h3>
+                            <span style="font-size: 0.72rem; color: var(--gold); font-family: var(--font-mono);">
+                                WebGL 3D Architectural Model · Ultra-HD Luxury Photography
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Hybrid View Mode Selector: 3D Architectural vs Ultra-HD Photos -->
+                    <div class="stage-view-mode-tabs">
+                        <button type="button" class="btn-stage-tab active" id="btnStageTab3D" data-stage-view="3d" onclick="window.switchStageMode('3d');">
+                            <span>🏛️ 3D Architectural Tour</span>
+                        </button>
+                        <button type="button" class="btn-stage-tab" id="btnStageTabGallery" data-stage-view="gallery" onclick="window.switchStageMode('gallery');">
+                            <span>📸 Ultra-HD Photography</span>
+                        </button>
+                    </div>
+
+                    <div class="stage-live-badge">
+                        <span class="live-beacon-dot" style="width: 6px; height: 6px; background: var(--emerald);"></span>
+                        <span>THREE.JS ENGINE ACTIVE</span>
+                    </div>
+                </div>
+
+                <!-- 1. 3D WebGL Canvas Frame -->
+                <div class="stage-3d-canvas-frame" id="stage3DCanvasFrame">
+                    <canvas id="roomThreeCanvas"></canvas>
+
+                    <!-- Interactive 3D Hotspot Tooltip HUD -->
+                    <div class="hotspot-card-hud" id="hotspotHudCard" style="display: none;"></div>
+
+                    <!-- Canvas HUD Overlay Controls -->
+                    <div class="canvas-hud-overlay">
+                        <!-- Room Selector HUD -->
+                        <div class="hud-pill-group">
+                            <span style="font-size: 0.7rem; color: var(--gold); font-family: var(--font-mono); align-self: center; margin-right: 4px;">SUITE:</span>
+                            <button type="button" class="hud-btn btn-3d-room-type" data-room-type="Single">Single</button>
+                            <button type="button" class="hud-btn btn-3d-room-type" data-room-type="Double">Double</button>
+                            <button type="button" class="hud-btn btn-3d-room-type" data-room-type="Deluxe">Deluxe</button>
+                            <button type="button" class="hud-btn btn-3d-room-type active" data-room-type="Suite">Suite 👑</button>
+                        </div>
+
+                        <!-- Lighting Presets HUD -->
+                        <div class="hud-pill-group">
+                            <span style="font-size: 0.7rem; color: var(--cyan); font-family: var(--font-mono); align-self: center; margin-right: 4px;">LIGHTS:</span>
+                            <button type="button" class="hud-btn btn-3d-lighting" data-lighting="daylight">☀️ Day</button>
+                            <button type="button" class="hud-btn btn-3d-lighting active" data-lighting="sunset">🌅 Sunset</button>
+                            <button type="button" class="hud-btn btn-3d-lighting" data-lighting="cyber">🌙 Cyber</button>
+                            <button type="button" class="hud-btn btn-3d-lighting" data-lighting="lounge">🍸 Lounge</button>
+                        </div>
+
+                        <!-- Camera View HUD -->
+                        <div class="hud-pill-group">
+                            <span style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono); align-self: center; margin-right: 4px;">CAMERA:</span>
+                            <button type="button" class="hud-btn hud-btn-gold btn-3d-camera active" data-camera="isometric">Isometric</button>
+                            <button type="button" class="hud-btn hud-btn-gold btn-3d-camera" data-camera="bed">Bed View</button>
+                            <button type="button" class="hud-btn hud-btn-gold btn-3d-camera" data-camera="balcony">Balcony</button>
+                            <button type="button" class="hud-btn hud-btn-gold btn-3d-camera" data-camera="orbit">360° Orbit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Ultra-HD Room Photography Stage Deck -->
+                <div class="stage-gallery-frame" id="stageGalleryFrame" style="display: none;">
+                    <div id="stageGalleryContainer"></div>
+                </div>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="filter-pills-bar">
+                <button type="button" class="filter-pill filter-pill-3d active" data-filter="all">All Accommodations</button>
+                <button type="button" class="filter-pill filter-pill-3d" data-filter="Single">Single Rooms</button>
+                <button type="button" class="filter-pill filter-pill-3d" data-filter="Double">Grand Double</button>
+                <button type="button" class="filter-pill filter-pill-3d" data-filter="Deluxe">Executive Deluxe</button>
+                <button type="button" class="filter-pill filter-pill-3d" data-filter="Suite">Presidential Suites</button>
+            </div>
+
+            <!-- Room Cards Grid -->
+            <div id="roomGridContainer" class="luxury-rooms-grid"></div>
+        </div>
+
+        <!-- VIEW: EXPERIENCES & DINING -->
+        <div id="tab-experiences" class="tab-view" style="display: none;">
+            <div class="section-editorial-header">
+                <span class="section-subtitle-tag">Unrivaled Hospitality</span>
+                <h2 class="section-editorial-title">Curated Experiences</h2>
+                <p class="section-editorial-desc">
+                    Indulge in Michelin-grade gastronomy, Ayurvedic sanctuaries, skyline cabanas, and bespoke Bangalore excursions.
+                </p>
+            </div>
+
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Botanical Dining Room" class="experience-photo">
+                    <div class="experience-body">
+                        <div class="experience-tag">Gastronomy & Wine</div>
+                        <h3 class="experience-title">The Botanical Dining Room</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                            Farm-to-table culinary creations crafted with indigenous spices, rare botanicals, and vintage cellar pairings.
+                        </p>
+                        <div style="display: flex; gap: 8px; margin-top: auto;">
+                            <button type="button" class="btn-luxury-primary" style="padding: 6px 14px; font-size: 0.78rem;" onclick="App.openExperienceModal('The Botanical Dining Room', 'Gastronomy & Wine Table')">
+                                Reserve Table →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Skyline Infinity Pool" class="experience-photo">
+                    <div class="experience-body">
+                        <div class="experience-tag">Leisure & Mixology</div>
+                        <h3 class="experience-title">Skyline Infinity Pool & Cabana</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                            Heated 24th-floor pool overlooking the Bangalore cityscape with private cabanas and sunset mixology service.
+                        </p>
+                        <div style="display: flex; gap: 8px; margin-top: auto;">
+                            <button type="button" class="btn-luxury-primary" style="padding: 6px 14px; font-size: 0.78rem;" onclick="App.openExperienceModal('Skyline Infinity Pool & Cabana', 'Private VIP Cabana')">
+                                Book Cabana →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="The Sanctuary Spa" class="experience-photo">
+                    <div class="experience-body">
+                        <div class="experience-tag">Holistic Wellness</div>
+                        <h3 class="experience-title">The Sanctuary Ayurvedic Spa</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                            Ancient Ayurvedic therapies combined with contemporary hydrotherapy for complete rejuvenation and serenity.
+                        </p>
+                        <div style="display: flex; gap: 8px; margin-top: auto;">
+                            <button type="button" class="btn-luxury-primary" style="padding: 6px 14px; font-size: 0.78rem;" onclick="App.openExperienceModal('The Sanctuary Ayurvedic Spa', 'Holistic Treatment Session')">
+                                Book Therapy →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80" alt="Chauffeur Service" class="experience-photo">
+                    <div class="experience-body">
+                        <div class="experience-tag">VIP Transit & Tours</div>
+                        <h3 class="experience-title">Airport Chauffeur & Excursions</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+                            Bespoke luxury airport transfers in a Mercedes Maybach and guided private excursions across Bangalore's heritage sites.
+                        </p>
+                        <div style="display: flex; gap: 8px; margin-top: auto;">
+                            <button type="button" class="btn-luxury-primary" style="padding: 6px 14px; font-size: 0.78rem;" onclick="App.openExperienceModal('Airport Chauffeur & Excursions', 'Private Transit & Tour')">
+                                Request Chauffeur →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 2: MY BOOKINGS (GUEST PERSONAL PORTAL) -->
+        <div id="tab-mybookings" class="tab-view" style="display: none;">
+            <div class="section-editorial-header">
+                <span class="section-subtitle-tag">Guest Portal</span>
+                <h2 class="section-editorial-title">My Reservations & Itinerary</h2>
+                <p class="section-editorial-desc">
+                    Review your confirmed stay, settle balances securely, and manage personalized preferences.
+                </p>
+            </div>
+
+            <div class="guest-portal-panel">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--primary);">Active Stay Ledger</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Directly synchronized with Hotel Grand reservation engine.</p>
+                    </div>
+                    <button type="button" class="btn-luxury-primary" onclick="App.openBookingModal()">
+                        <span>+</span> Reserve Another Suite
+                    </button>
+                </div>
+
+                <div id="myBookingsContainer">
+                    <div style="text-align: center; color: var(--text-muted); padding: 2.5rem; font-style: italic;">
+                        Retrieving reservations...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 3: SMART AI CHECK-IN (VISION OCR) -->
+        <div id="tab-checkin" class="tab-view" style="display: none;">
+            <div class="section-editorial-header">
+                <span class="section-subtitle-tag">Pre-Arrival Verification</span>
+                <h2 class="section-editorial-title">Seamless Vision Check-In</h2>
+                <p class="section-editorial-desc">
+                    Bypass reception queues. Our secure computer-vision identity intelligence scans and authenticates your national ID in seconds.
+                </p>
+            </div>
+
+            <div class="checkin-luxury-box">
+                <input type="file" id="ocrFileInput" accept="image/*,.pdf" style="display: none;">
+                
+                <div class="ocr-upload-zone" id="ocrDropzone">
+                    <div class="ocr-upload-icon">🪪</div>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--primary); margin-bottom: 6px;">
+                        Drop ID Document Here or Click to Upload
+                    </h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                        Accepts Aadhaar Card, Passport, or National Driver's License (JPG, PNG, PDF)
+                    </p>
+                    <span class="btn-luxury-secondary" style="font-size: 0.78rem;">Select Document</span>
+                </div>
+
+                <div style="margin-top: 1.25rem; text-align: center;">
+                    <div style="font-size: 0.75rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
+                        ⚡ Instant 1-Click Simulations (Test Identity Verification)
+                    </div>
+                    <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                        <button type="button" class="btn-luxury-secondary" id="btnSampleOcr" style="font-size: 0.8rem; padding: 6px 14px;">
+                            <span>🪪</span> Sample Aadhaar Card
+                        </button>
+                        <button type="button" class="btn-luxury-secondary" id="btnSamplePassport" style="font-size: 0.8rem; padding: 6px 14px;">
+                            <span>🛂</span> Sample Passport
+                        </button>
+                        <button type="button" class="btn-luxury-secondary" id="btnSampleDL" style="font-size: 0.8rem; padding: 6px 14px;">
+                            <span>🚘</span> Sample Driver's License
+                        </button>
+                    </div>
+                </div>
+
+                <div id="ocrStatus" style="margin-top: 1.5rem;"></div>
+            </div>
+        </div>
+
+        <!-- VIEW 4: STAFF & MANAGER COMMAND CENTER -->
+        <div id="tab-dashboard" class="tab-view" style="display: none;">
+            <div class="section-editorial-header">
+                <span class="section-subtitle-tag">Hotel Operations Management</span>
+                <h2 class="section-editorial-title">Command Center & Revenue Intelligence</h2>
+                <p class="section-editorial-desc">
+                    Comprehensive overview of occupancy telemetry, real-time revenue, guest allocations, and reservation ledgers.
+                </p>
+            </div>
+
+            <!-- KPI Metric Cards Grid -->
+            <div class="kpi-metrics-grid">
+                <div class="kpi-metric-card" id="cardRevenueTelemetry">
+                    <div>
+                        <div class="kpi-label">Gross Room Revenue</div>
+                        <div class="kpi-value" id="statTotalRevenue">₹0.00</div>
+                    </div>
+                    <div class="kpi-sub" id="statPaidBookings">0 Paid · 0 Due</div>
+                </div>
+
+                <div class="kpi-metric-card">
+                    <div>
+                        <div class="kpi-label">Live Occupancy Rate</div>
+                        <div class="kpi-value" id="statOccupancy">0%</div>
+                    </div>
+                    <div class="kpi-sub" id="statOccupancySub">0/8 Rooms in house</div>
+                </div>
+
+                <div class="kpi-metric-card">
+                    <div>
+                        <div class="kpi-label">Total Reservations</div>
+                        <div class="kpi-value" id="statTotalBookings">0</div>
+                    </div>
+                    <div class="kpi-sub" style="color: var(--success);">Synchronized</div>
+                </div>
+
+                <div class="kpi-metric-card">
+                    <div>
+                        <div class="kpi-label">Neural Engine Latency</div>
+                        <div class="kpi-value" style="font-size: 1.85rem;">0.12 <span style="font-size: 0.9rem; color: var(--text-muted); font-family: var(--font-body);">sec</span></div>
+                    </div>
+                    <div class="kpi-sub" style="color: var(--accent);">Adaptive Pricing Active</div>
+                </div>
+            </div>
+
+            <!-- Occupancy Progress Bars -->
+            <div class="occupancy-bars-panel">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem;">
+                    <h3 style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--primary);">
+                        Occupancy Breakdown by Room Category
+                    </h3>
+                    <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">Real-Time Allocation</span>
+                </div>
+                <div id="occupancyBreakdownBars"></div>
+            </div>
+
+            <!-- Active Reservations Ledger Table -->
+            <div class="guest-portal-panel" style="margin-top: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; color: var(--primary);">Active Reservations Ledger</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Search, filter, allocate rooms, and settle guest accounts.</p>
+                    </div>
+
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" id="bookingSearchInput" class="form-control" style="width: 260px;" placeholder="Search guest name or Aadhaar...">
+                        <button type="button" class="btn-luxury-primary" id="bookingSearchBtn" style="padding: 8px 18px;">
+                            Search
+                        </button>
+                    </div>
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table class="luxury-table">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Guest Name</th>
+                                <th>Suite Assigned</th>
+                                <th>Stay Dates</th>
+                                <th>Total Tariff</th>
+                                <th>Settlement</th>
+                                <th>Status</th>
+                                <th style="text-align: right;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dashboardBookingsTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 5: GUEST REVIEWS & SENTIMENT INTELLIGENCE -->
+        <div id="tab-feedback" class="tab-view" style="display: none;">
+            <div class="section-editorial-header">
+                <span class="section-subtitle-tag">Guest Voices</span>
+                <h2 class="section-editorial-title">Testimonials & Sentiment Intelligence</h2>
+                <p class="section-editorial-desc">
+                    Our AI sentiment analyzer continuously evaluates guest experiences to uphold our uncompromising standards of luxury.
+                </p>
+            </div>
+
+            <div class="reviews-container">
+                <!-- Review Form -->
+                <div class="review-form-card">
+                    <h3 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--primary); margin-bottom: 0.5rem;">
+                        How Was Your Experience?
+                    </h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        Share your thoughts on accommodations, dining, or personalized services.
+                    </p>
+
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label class="form-label">Your Full Name</label>
+                            <input type="text" id="feedGuestName" class="form-control" required placeholder="e.g. Aniket Chate">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Rating Experience</label>
+                            <select id="feedRating" class="form-control">
+                                <option value="5">★★★★★ — Exceptional & Impeccable (5 Stars)</option>
+                                <option value="4">★★★★☆ — Splendid Experience (4 Stars)</option>
+                                <option value="3">★★★☆☆ — Satisfactory (3 Stars)</option>
+                                <option value="2">★★☆☆☆ — Needs Improvement (2 Stars)</option>
+                                <option value="1">★☆☆☆☆ — Urgent Service Concern (1 Star)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Review Details</label>
+                            <textarea id="feedComment" rows="4" class="form-control" required placeholder="Describe your stay, the comfort of your suite, or any amenities you enjoyed..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-luxury-primary" style="width: 100%; justify-content: center; padding: 12px;">
+                            <span>✦</span> Submit to AI Sentiment Analyzer
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Recent Reviews Stream -->
+                <div class="recent-reviews-stream" id="recentReviewsStream"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 5. LUXURY FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div>
+                <div class="footer-brand-title">HOTEL GRAND</div>
+                <p style="font-size: 0.88rem; color: rgba(255,255,255,0.7); max-width: 320px; line-height: 1.6; margin-bottom: 1.5rem;">
+                    Bespoke luxury hospitality in the heart of Bangalore. Seamlessly uniting architectural elegance with conversational AI assistance.
+                </p>
+                <div style="font-size: 0.8rem; color: var(--accent-light);">
+                    100 Residency Road, Bangalore, Karnataka, India
+                </div>
+            </div>
+
+            <div>
+                <h4 class="footer-col-title">Accommodations</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#rooms" onclick="App.switchTab('rooms')">Presidential Suite</a></li>
+                    <li><a href="#rooms" onclick="App.switchTab('rooms')">Executive Deluxe</a></li>
+                    <li><a href="#rooms" onclick="App.switchTab('rooms')">Grand Double</a></li>
+                    <li><a href="#rooms" onclick="App.switchTab('rooms')">Single Room</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-col-title">Guest Services</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#checkin" onclick="App.switchTab('checkin')">Smart Vision Check-In</a></li>
+                    <li><a href="#mybookings" onclick="App.switchTab('mybookings')">My Reservations</a></li>
+                    <li><a href="#experiences" onclick="App.switchTab('experiences')">Dining & Wellness</a></li>
+                    <li><a href="#feedback" onclick="App.switchTab('feedback')">Guest Reviews</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-col-title">NOVA Concierge</h4>
+                <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 1rem;">
+                    Our digital concierge is available 24/7 with speech capabilities to assist with reservations, dining, and city guides.
+                </p>
+                <button type="button" class="btn-luxury-gold" style="font-size: 0.8rem; padding: 7px 16px;" onclick="document.getElementById('conciergeFloatBtn').click()">
+                    <span>✦</span> Speak with NOVA
+                </button>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <span>© 2026 Hotel Grand Bangalore. All rights reserved.</span>
+            <span>Designed with Luxury Editorial Principles & Intelligent Neural Architecture</span>
+        </div>
+    </footer>
+
+    <!-- 6. REDESIGNED NOVA AI CONCIERGE FLOATING LAUNCHER -->
+    <div class="concierge-float-launcher" id="conciergeFloatBtn" title="Speak with NOVA AI Concierge">
+        <span class="launcher-symbol">✦</span>
+        <span class="launcher-text">NOVA Concierge</span>
+    </div>
+
+    <!-- CONCIERGE CHAT WINDOW -->
+    <div class="luxury-concierge-window" id="conciergeWindow">
+        <!-- Header -->
+        <div class="concierge-top-header">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="nova-orb" id="novaOrb"></div>
+                <div>
+                    <div class="concierge-brand-title">
+                        <span>NOVA Concierge</span>
+                        <span id="conciergeRoleBadge" class="concierge-role-tag">GUEST MODE</span>
+                    </div>
+                    <div id="conciergeStatusLine" class="concierge-sub-status">
+                        <span class="live-beacon-dot" style="width: 5px; height: 5px;"></span>
+                        <span id="conciergeStatusText">Online · Your Personal Friend & Concierge</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 6px;">
+                <button type="button" class="btn-icon" id="conciergeMuteBtn" title="Toggle Reading Voice (Voice On / Muted)" style="background: rgba(255,255,255,0.15); border: none; color: #FFFFFF; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                    <svg id="voiceMuteIcon" style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24">
+                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                    </svg>
+                </button>
+                <button type="button" class="btn-icon" id="conciergeCloseBtn" style="background: rgba(255,255,255,0.15); border: none; color: #FFFFFF; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;" title="Close Chat">
+                    ✕
+                </button>
+            </div>
+        </div>
+
+        <!-- Role Prompt Suggestion Chips -->
+        <div class="concierge-pills-row" id="conciergeChips"></div>
+
+        <!-- Messages Stream -->
+        <div class="concierge-chat-stream" id="conciergeMessages">
+            <div class="concierge-bubble bubble-ai">
+                Warm greetings! 👋 I'm <strong>NOVA</strong>, your personal AI concierge and friend at Hotel Grand Bangalore.
+                Whether you're looking for room availability, need help with your itinerary, dining recommendations, or want to make a reservation—I'm delighted to assist you!
+            </div>
+        </div>
+
+        <!-- Real-Time Voice Speaking Banner -->
+        <div class="concierge-speaking-banner" id="conciergeSpeakingBar" style="display: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="speaking-wave-box">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+                <span style="font-size: 0.72rem; color: var(--primary); font-weight: 600;">NOVA is reading aloud...</span>
+            </div>
+            <button type="button" class="speaking-banner-stop-btn" id="speakingBarStopBtn" title="Stop Voice (Interrupt Reading)">
+                ⏹ Stop Voice
+            </button>
+        </div>
+
+        <!-- Chat Input Deck -->
+        <div class="concierge-input-deck">
+            <input type="text" id="conciergeInput" class="concierge-text-input" placeholder="Ask NOVA or speak like a friend...">
+            
+            <button type="button" class="btn-concierge-icon btn-stop-voice" id="conciergeStopVoiceBtn" title="Stop Voice Reading" style="display: none;">
+                <svg style="width: 15px; height: 15px; fill: currentColor;" viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg>
+            </button>
+            
+            <button type="button" class="btn-concierge-icon" id="conciergeVoiceBtn" title="Voice Input (Speech-to-Text)">
+                <svg style="width: 17px; height: 17px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.91-3c-.49 0-.9.36-.98.85C16.52 14.2 14.47 16 12 16s-4.52-1.8-4.93-4.15c-.08-.49-.49-.85-.98-.85-.61 0-1.09.54-1 1.14.49 3 2.89 5.35 5.91 5.78V20c0 .55.45 1 1 1s1-.45 1-1v-2.08c3.02-.43 5.42-2.78 5.91-5.78.1-.6-.39-1.14-1-1.14z"></path></svg>
+            </button>
+            
+            <button type="button" class="btn-concierge-icon" id="conciergeSendBtn" title="Send Message" style="background: var(--primary); color: #FFFFFF;">
+                <svg style="width: 17px; height: 17px; fill: currentColor;" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- 7. ROOM DETAIL MODAL & GALLERY -->
+    <div class="modal-overlay" id="roomDetailModal">
+        <div class="modal-box room-detail-modal-box">
+            <div class="room-detail-header-gallery">
+                <img id="roomDetailMainImg" src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80" alt="Suite Gallery View" class="room-detail-main-img">
+                <button type="button" class="modal-close-btn" id="closeRoomDetailModal" style="position: absolute; top: 16px; right: 16px; z-index: 10; background: rgba(255,255,255,0.85);">✕</button>
+                <div class="room-detail-gallery-thumbs" id="roomDetailThumbs"></div>
+            </div>
+
+            <div class="room-detail-body">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em;">Signature Collection</span>
+                        <h2 id="roomDetailTitle" style="font-family: var(--font-heading); font-size: 1.85rem; color: var(--primary);">Deluxe Room</h2>
+                    </div>
+                    <div style="text-align: right;">
+                        <span style="font-size: 0.72rem; color: var(--text-muted); display: block;">Per Night Tariff</span>
+                        <span id="roomDetailPrice" style="font-family: var(--font-heading); font-size: 1.7rem; font-weight: 700; color: var(--primary);">₹4,000</span>
+                    </div>
+                </div>
+
+                <div class="room-detail-specs-bar" id="roomDetailSpecs">
+                    2 Guests · 1 King Bed · 42 m²
+                </div>
+
+                <p id="roomDetailDesc" style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.5rem;">
+                    A refined space designed for effortless comfort. Features panoramic Bangalore vistas, custom Italian marble bath, and automated sensory climate controls.
+                </p>
+
+                <div style="margin-bottom: 1.75rem;">
+                    <h4 style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
+                        Included Suite Amenities
+                    </h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="room-amenity-badge">High-Speed Wi-Fi</span>
+                        <span class="room-amenity-badge">Balcony City View</span>
+                        <span class="room-amenity-badge">65" OLED Smart TV</span>
+                        <span class="room-amenity-badge">Rain Shower</span>
+                        <span class="room-amenity-badge">Gourmet Mini-Bar</span>
+                        <span class="room-amenity-badge">24/7 AI Butler</span>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; gap: 12px; border-top: 1px solid var(--border-soft); padding-top: 1.25rem;">
+                    <button type="button" class="btn-luxury-secondary" onclick="document.getElementById('roomDetailModal').classList.remove('active')">
+                        Close
+                    </button>
+                    <button type="button" class="btn-luxury-primary" id="btnRoomDetailReserve">
+                        Reserve This Suite →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. BOOKING MODAL -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-box">
+            <div class="modal-top-bar">
+                <div>
+                    <span style="font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em;">Reservation Desk</span>
+                    <h3 class="modal-title">Reserve Your Stay</h3>
+                </div>
+                <button type="button" class="modal-close-btn" id="closeBookingModal">✕</button>
+            </div>
+
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label class="form-label">Guest Full Name</label>
+                    <input type="text" id="bookName" class="form-control" required placeholder="e.g. Aniket Chate">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label">Contact Phone</label>
+                        <input type="tel" id="bookPhone" class="form-control" required placeholder="10 Digits" pattern="[0-9]{10}">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="bookEmail" class="form-control" required placeholder="guest@example.com">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label">Aadhaar / National ID</label>
+                        <input type="text" id="bookAadhaar" class="form-control" required placeholder="12 Digit Aadhaar" pattern="[0-9]{12}">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Suite Category</label>
+                        <select id="bookRoomType" class="form-control">
+                            <option value="Single">Single Room (₹1,500/night)</option>
+                            <option value="Double">Grand Double (₹2,500/night)</option>
+                            <option value="Deluxe" selected>Executive Deluxe (₹4,000/night)</option>
+                            <option value="Suite">Presidential Suite (₹6,000/night)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label">Check-In Date</label>
+                        <input type="date" id="bookCheckIn" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Check-Out Date</label>
+                        <input type="date" id="bookCheckOut" class="form-control" required>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label">Number of Guests</label>
+                        <input type="number" id="bookGuests" class="form-control" min="1" max="6" value="2">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Payment Channel</label>
+                        <select id="bookPaymentMethod" class="form-control">
+                            <option value="online">Online Settlement / UPI</option>
+                            <option value="cash">Settlement upon Arrival</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Dynamic Live Price Calculation -->
+                <div id="bookingPriceEstimate" style="margin-bottom: 1.5rem;"></div>
+
+                <button type="submit" class="btn-luxury-primary" id="btnSubmitBooking" style="width: 100%; justify-content: center; padding: 13px; font-size: 0.95rem;">
+                    Confirm & Reserve Stay
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 9. PAYMENT MODAL -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-box" style="max-width: 480px;">
+            <div class="modal-top-bar">
+                <div>
+                    <span style="font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em;">Settlement Desk</span>
+                    <h3 class="modal-title">Authorize Payment</h3>
+                </div>
+                <button type="button" class="modal-close-btn" id="closePaymentModal">✕</button>
+            </div>
+
+            <form id="paymentForm">
+                <input type="hidden" id="payBookingId">
+                <div style="background: var(--surface-soft); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; margin-bottom: 1.25rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.88rem;">
+                        <span style="color: var(--text-secondary);">Guest Account:</span>
+                        <strong id="payCustomerName" style="color: var(--primary);"></strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 700; border-top: 1px solid var(--border-soft); padding-top: 8px;">
+                        <span>Balance Due:</span>
+                        <strong id="payTotalDue" style="color: var(--success); font-family: var(--font-heading); font-size: 1.2rem;"></strong>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Payment Amount (₹)</label>
+                    <input type="number" id="payAmount" step="0.01" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Settlement Channel</label>
+                    <select id="payMethod" class="form-control">
+                        <option value="online">Instant UPI / NetBanking</option>
+                        <option value="card">Credit / Debit Card</option>
+                        <option value="cash">Front Desk Cash</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-luxury-primary" style="width: 100%; justify-content: center; padding: 12px; margin-top: 1rem;">
+                    Authorize Transaction
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 10. AUTHENTICATION MODAL (LOGIN & REGISTRATION) -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-box" style="max-width: 460px;">
+            <div class="modal-top-bar">
+                <div>
+                    <span style="font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em;">Guest & Staff Access</span>
+                    <h3 class="modal-title" id="authModalTitle">Hotel Grand Sign In</h3>
+                </div>
+                <button type="button" class="modal-close-btn" id="closeAuthModal">✕</button>
+            </div>
+
+            <!-- Quick Preset 1-Click Demo Logins -->
+            <div class="auth-preset-row">
+                <div style="font-size: 0.7rem; color: var(--accent); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">
+                    ⚡ Instant Demo Logins
+                </div>
+                <div class="preset-login-grid">
+                    <button type="button" class="preset-login-btn" onclick="App.quickLogin('manager')">👑 Manager</button>
+                    <button type="button" class="preset-login-btn" onclick="App.quickLogin('staff')">👔 Staff</button>
+                    <button type="button" class="preset-login-btn" onclick="App.quickLogin('guest')">👤 Guest</button>
+                </div>
+            </div>
+
+            <!-- Tabs: Sign In / Register -->
+            <div class="auth-tabs">
+                <button type="button" class="auth-tab active" id="tabAuthLogin" onclick="App.switchAuthTab('login')">Sign In</button>
+                <button type="button" class="auth-tab" id="tabAuthRegister" onclick="App.switchAuthTab('register')">Create Account</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" id="loginUsername" class="form-control" required placeholder="manager, staff, guest">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" required placeholder="••••••••">
+                </div>
+                <div id="loginError" style="color: var(--danger); font-size: 0.8rem; margin-bottom: 0.8rem; display: none;"></div>
+                <button type="submit" class="btn-luxury-primary" style="width: 100%; justify-content: center; padding: 12px;">
+                    Sign In to Account
+                </button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" style="display: none;">
+                <div class="form-group">
+                    <label class="form-label">Desired Username</label>
+                    <input type="text" id="regUsername" class="form-control" required placeholder="e.g. aniketchate">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Create Password</label>
+                    <input type="password" id="regPassword" class="form-control" required placeholder="••••••••">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Account Role</label>
+                    <select id="regRole" class="form-control" onchange="App.handleRoleSelectChange()">
+                        <option value="guest" selected>Guest (Luxury Traveler)</option>
+                        <option value="staff">Staff / Reception Employee</option>
+                        <option value="manager">Hotel General Manager</option>
+                    </select>
+                </div>
+                <div class="form-group" id="passcodeGroup" style="display: none;">
+                    <label class="form-label" style="color: var(--warning);">Staff/Manager Security Passcode</label>
+                    <input type="password" id="regPasscode" class="form-control" placeholder="Passcode (HOTEL-GRAND-2026)">
+                    <small style="color: var(--text-muted); font-size: 0.72rem;">Required to register as Staff or Manager.</small>
+                </div>
+                <div id="registerError" style="color: var(--danger); font-size: 0.8rem; margin-bottom: 0.8rem; display: none;"></div>
+                <div id="registerSuccess" style="color: var(--success); font-size: 0.8rem; margin-bottom: 0.8rem; display: none;"></div>
+                <button type="submit" class="btn-luxury-primary" style="width: 100%; justify-content: center; padding: 12px;">
+                    Create Authorized Account
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 11. EXPERIENCE RESERVATION MODAL -->
+    <div class="modal-overlay" id="experienceModal">
+        <div class="modal-box" style="max-width: 500px;">
+            <div class="modal-top-bar">
+                <div>
+                    <span style="font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em;">Curated Hospitality</span>
+                    <h3 class="modal-title" id="expModalTitle">Reserve Experience</h3>
+                </div>
+                <button type="button" class="modal-close-btn" id="closeExperienceModal">✕</button>
+            </div>
+
+            <form id="experienceForm">
+                <input type="hidden" id="expTitle">
+                <div class="form-group">
+                    <label class="form-label">Selected Experience</label>
+                    <input type="text" id="expCategory" class="form-control" readonly style="background: var(--surface-soft); font-weight: 600;">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Guest Full Name</label>
+                    <input type="text" id="expGuestName" class="form-control" required placeholder="e.g. Aniket Chate">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label">Preferred Date</label>
+                        <input type="date" id="expDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Preferred Time Slot</label>
+                        <select id="expTime" class="form-control">
+                            <option value="12:00 PM">12:00 PM (Lunch)</option>
+                            <option value="03:00 PM">03:00 PM (Afternoon)</option>
+                            <option value="06:30 PM">06:30 PM (Sunset / Cocktail)</option>
+                            <option value="08:00 PM" selected>08:00 PM (Dinner)</option>
+                            <option value="10:00 AM">10:00 AM (Morning Spa)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label">Number of Guests</label>
+                        <input type="number" id="expGuests" class="form-control" min="1" max="10" value="2">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Contact Phone</label>
+                        <input type="tel" id="expPhone" class="form-control" required placeholder="10 Digits">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Bespoke Requests / Dietary Notes</label>
+                    <textarea id="expNotes" rows="2" class="form-control" placeholder="E.g. Table by the window, vegan dietary preferences, birthday celebration..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-luxury-primary" style="width: 100%; justify-content: center; padding: 12px; font-size: 0.92rem;">
+                    <span>✦</span> Confirm Experience Reservation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 12. LUXURY BOOKING VOUCHER & INVOICE PRINT MODAL -->
+    <div class="modal-overlay" id="voucherModal">
+        <div class="modal-box" style="max-width: 650px; padding: 2rem;">
+            <div class="modal-top-bar" style="border-bottom: none; padding-bottom: 0;">
+                <div>
+                    <span style="font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em;">Official Certificate</span>
+                    <h3 class="modal-title">Guest Stay Voucher & Receipt</h3>
+                </div>
+                <button type="button" class="modal-close-btn" id="closeVoucherModal">✕</button>
+            </div>
+
+            <!-- Printable Voucher Document -->
+            <div id="voucherPrintArea" class="voucher-document">
+                <div class="voucher-header">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="brand-monogram" style="width: 44px; height: 44px; font-size: 1.35rem;">HG</div>
+                        <div>
+                            <div style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; color: var(--primary); letter-spacing: 0.05em;">HOTEL GRAND BANGALORE</div>
+                            <div style="font-size: 0.72rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase;">5-Star Luxury Heritage Sanctuary</div>
+                        </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="status-badge-luxury paid" id="voucherStatusBadge">CONFIRMED</span>
+                        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;" id="voucherBookingId">#HG-2026-001</div>
+                    </div>
+                </div>
+
+                <div class="voucher-grid">
+                    <div class="voucher-cell">
+                        <span class="voucher-label">Guest Name</span>
+                        <strong class="voucher-value" id="voucherGuestName">Aniket Chate</strong>
+                    </div>
+                    <div class="voucher-cell">
+                        <span class="voucher-label">Suite Assigned</span>
+                        <strong class="voucher-value" id="voucherSuiteName">Executive Deluxe Suite #301</strong>
+                    </div>
+                    <div class="voucher-cell">
+                        <span class="voucher-label">Check-In Date</span>
+                        <strong class="voucher-value" id="voucherCheckIn">2026-10-01 (from 2:00 PM)</strong>
+                    </div>
+                    <div class="voucher-cell">
+                        <span class="voucher-label">Check-Out Date</span>
+                        <strong class="voucher-value" id="voucherCheckOut">2026-10-03 (until 11:00 AM)</strong>
+                    </div>
+                    <div class="voucher-cell">
+                        <span class="voucher-label">Guests</span>
+                        <strong class="voucher-value" id="voucherGuests">2 Adults</strong>
+                    </div>
+                    <div class="voucher-cell">
+                        <span class="voucher-label">Payment Channel</span>
+                        <strong class="voucher-value" id="voucherPaymentMethod">Online Verified</strong>
+                    </div>
+                </div>
+
+                <div class="voucher-financials">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.88rem;">
+                        <span style="color: var(--text-secondary);">Room Tariff & Taxes (GST 18% Incl.):</span>
+                        <span style="font-family: var(--font-heading); font-weight: 700; color: var(--primary);" id="voucherTotalAmount">₹8,000.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 700; border-top: 1px dashed var(--border); padding-top: 8px;">
+                        <span>Amount Settled:</span>
+                        <span style="color: var(--success); font-family: var(--font-heading); font-size: 1.2rem;" id="voucherPaidAmount">₹8,000.00</span>
+                    </div>
+                </div>
+
+                <div class="voucher-footer">
+                    <div>
+                        <div style="font-weight: 600; font-size: 0.75rem; color: var(--primary);">Hotel Grand Bangalore</div>
+                        <div style="font-size: 0.7rem; color: var(--text-muted);">100 Residency Road, Bangalore, KA, India · Tel: +91 80 4910 8888</div>
+                    </div>
+                    <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); border: 1px solid var(--border-gold); padding: 4px 8px; border-radius: 4px;">
+                        ✦ VERIFIED DIGITAL VOUCHER
+                    </div>
+                </div>
+            </div>
+
+            <!-- Print Actions -->
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 1.5rem;">
+                <button type="button" class="btn-luxury-secondary" onclick="document.getElementById('voucherModal').classList.remove('active')">
+                    Close
+                </button>
+                <button type="button" class="btn-luxury-primary" onclick="window.print()">
+                    <span>🖨️</span> Print / Save PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toastContainer" class="luxury-toast-container"></div>
+
+    <!-- 3D Three.js Engine & Live Ambient Canvas Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="/static/js/live_ambient_background.js?v=2.5"></script>
+    <script src="/static/js/hero_particles.js?v=2.5"></script>
+
+    <!-- Application Controllers -->
+    <script src="/static/js/api.js?v=2.5"></script>
+    <script src="/static/js/room_visualizer.js?v=2.5"></script>
+    <script src="/static/js/ai_concierge.js?v=2.5"></script>
+    <script src="/static/js/dashboard.js?v=2.5"></script>
+    <script src="/static/js/app.js?v=2.5"></script>
+
+    <script>
+        // Global Instant Stage Switcher
+        window.switchStageMode = function(mode) {
+            if (window.App && window.App.roomVisualizer) {
+                window.App.roomVisualizer.setStageView(mode);
+            } else {
+                const c3d = document.getElementById('stage3DCanvasFrame');
+                const gal = document.getElementById('stageGalleryFrame');
+                if (mode === '3d') {
+                    if (c3d) c3d.style.display = 'block';
+                    if (gal) gal.style.display = 'none';
+                } else {
+                    if (c3d) c3d.style.display = 'none';
+                    if (gal) gal.style.display = 'block';
+                }
+                document.querySelectorAll('.btn-stage-tab').forEach(b => {
+                    if (b.dataset.stageView === mode) b.classList.add('active');
+                    else b.classList.remove('active');
+                });
+            }
+        };
+    </script>
+
+    <!-- Mobile Menu Interactivity Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const drawer = document.getElementById('mobileNavDrawer');
+            if (menuBtn && drawer) {
+                // Check if screen is small
+                if (window.innerWidth <= 768) {
+                    menuBtn.style.display = 'inline-block';
+                }
+                window.addEventListener('resize', () => {
+                    menuBtn.style.display = window.innerWidth <= 768 ? 'inline-block' : 'none';
+                    if (window.innerWidth > 768) drawer.style.display = 'none';
+                });
+
+                menuBtn.addEventListener('click', () => {
+                    drawer.style.display = drawer.style.display === 'none' ? 'flex' : 'none';
+                });
+
+                drawer.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        drawer.style.display = 'none';
+                        const tab = link.dataset.tab;
+                        if (window.App) window.App.switchTab(tab);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
